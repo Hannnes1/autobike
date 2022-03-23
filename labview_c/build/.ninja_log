@@ -1,0 +1,5 @@
+# ninja log v5
+1	105	6697340568555808	CMakeFiles/myLib.dir/C_/Users/Hannes/Documents/hello_world/src/myLib.c.o	a06ca1300194d506
+106	232	6697340569792500	bin/libmyLib.so	f418657321162215
+1	105	6697363142281372	CMakeFiles/myLib.dir/C_/Users/Hannes/Documents/hello_world/src/myLib.c.o	a06ca1300194d506
+106	230	6697363143498167	bin/libmyLib.so	f418657321162215
