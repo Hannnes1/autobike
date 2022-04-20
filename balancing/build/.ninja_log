@@ -1,0 +1,6 @@
+# ninja log v5
+1	129	6721499942408300	CMakeFiles/myLib.dir/C_/Users/Hannes/Documents/autobike/balancing/src/balancing.c.o	8fa11db897f6d15c
+1	110	6721538938222184	CMakeFiles/balancing.dir/C_/Users/Hannes/Documents/autobike/balancing/src/balancing.c.o	8f54a72ff856852c
+111	244	6721538939538661	bin/libbalancing.so	6cde7bad46bd75fa
+1	113	6721539730340422	CMakeFiles/balancing.dir/C_/Users/Hannes/Documents/autobike/balancing/src/balancing.c.o	8f54a72ff856852c
+114	244	6721539731622914	bin/libbalancing.so	6cde7bad46bd75fa
