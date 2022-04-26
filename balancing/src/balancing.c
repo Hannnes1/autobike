@@ -1,7 +1,7 @@
 #include "balancing.h"
 
-extern double stabilizeBike(double rollRate) {
-    double steeringRate = pid(0, rollRate);
+extern double stabilizeBike(double rollRate, double Kp, double Ki, double Kd) {
+    double steeringRate = pid(0, rollRate, Kp, Ki, Kd);
 
     // Send Steering Rate Reference value to steering motor controller
     double steeringPWM = calculateSteeringPWM(steeringRate);
@@ -21,7 +21,7 @@ double calculateSteeringPWM(double angularVelocity) {
     return 50 + rpm * 40.0 / 1000.0;
 }
 
-double pid(double reference, double currentValue) {
+double pid(double reference, double currentValue, double Kp, double Ki, double Kd) {
     double error = reference - currentValue;
 
     integral += error;
