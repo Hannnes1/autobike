@@ -1,0 +1,6 @@
+# ninja log v5
+1	147	6728493705310241	CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	6a23c19d7b49b07c
+1	128	6728538416132155	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	1f3df441f6ca38d9
+129	280	6728538417587922	bin/libvescEncoder.so	93287301597277f6
+1	140	6728552598181459	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	1f3df441f6ca38d9
+141	310	6728552599874701	bin/libvescEncoder.so	93287301597277f6

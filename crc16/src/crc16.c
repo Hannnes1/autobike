@@ -6,5 +6,5 @@ unsigned short crc16(unsigned char *buf, unsigned int len) {
 	for (i = 0; i < len; i++) {
 		cksum = crc16_tab[(((cksum >> 8) ^ *buf++) & 0xFF)] ^ (cksum << 8);
 	}
-	return cksum;
+	return *buf;
 }

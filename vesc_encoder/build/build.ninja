@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: crc16
+# Project: vescEncoder
 # Configurations: Debug
 # =============================================================================
 
@@ -39,47 +39,47 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/Hannes/Documents/autobike/crc16/build/
+cmake_ninja_workdir = C$:/Users/Hannes/Documents/autobike/vesc_encoder/build/
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target crc16
+# Object build statements for SHARED_LIBRARY target vescEncoder
 
 
 #############################################
-# Order-only phony target for crc16
+# Order-only phony target for vescEncoder
 
-build cmake_object_order_depends_target_crc16: phony || CMakeFiles/crc16.dir
+build cmake_object_order_depends_target_vescEncoder: phony || CMakeFiles/vescEncoder.dir
 
-build CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/crc16/src/crc16.c.o: C_COMPILER__crc16_Debug C$:/Users/Hannes/Documents/autobike/crc16/src/crc16.c || cmake_object_order_depends_target_crc16
-  DEFINES = -Dcrc16_EXPORTS
-  DEP_FILE = CMakeFiles\crc16.dir\C_\Users\Hannes\Documents\autobike\crc16\src\crc16.c.o.d
+build CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o: C_COMPILER__vescEncoder_Debug C$:/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c || cmake_object_order_depends_target_vescEncoder
+  DEFINES = -DvescEncoder_EXPORTS
+  DEP_FILE = CMakeFiles\vescEncoder.dir\C_\Users\Hannes\Documents\autobike\vesc_encoder\src\vescEncoder.c.o.d
   FLAGS = -g -fPIC
-  OBJECT_DIR = CMakeFiles\crc16.dir
-  OBJECT_FILE_DIR = CMakeFiles\crc16.dir\C_\Users\Hannes\Documents\autobike\crc16\src
+  OBJECT_DIR = CMakeFiles\vescEncoder.dir
+  OBJECT_FILE_DIR = CMakeFiles\vescEncoder.dir\C_\Users\Hannes\Documents\autobike\vesc_encoder\src
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target crc16
+# Link build statements for SHARED_LIBRARY target vescEncoder
 
 
 #############################################
-# Link the shared library bin\libcrc16.so
+# Link the shared library bin\libvescEncoder.so
 
-build bin/libcrc16.so: C_SHARED_LIBRARY_LINKER__crc16_Debug CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/crc16/src/crc16.c.o
+build bin/libvescEncoder.so: C_SHARED_LIBRARY_LINKER__vescEncoder_Debug CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\crc16.dir
+  OBJECT_DIR = CMakeFiles\vescEncoder.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  SONAME = libcrc16.so
+  SONAME = libvescEncoder.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = bin\libcrc16.so
-  TARGET_PDB = crc16.so.dbg
+  TARGET_FILE = bin\libvescEncoder.so
+  TARGET_PDB = vescEncoder.so.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Hannes\Documents\autobike\crc16\build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\Hannes\Documents\autobike\crc16\build -BC:\Users\Hannes\Documents\autobike\crc16\build"
+  COMMAND = cmd.exe /C "cd /D C:\Users\Hannes\Documents\autobike\vesc_encoder\build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\Hannes\Documents\autobike\vesc_encoder\build -BC:\Users\Hannes\Documents\autobike\vesc_encoder\build"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -91,7 +91,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Hannes\Documents\autobike\crc16\build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\Hannes\Documents\autobike\crc16\build -BC:\Users\Hannes\Documents\autobike\crc16\build"
+  COMMAND = cmd.exe /C "cd /D C:\Users\Hannes\Documents\autobike\vesc_encoder\build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\Hannes\Documents\autobike\vesc_encoder\build -BC:\Users\Hannes\Documents\autobike\vesc_encoder\build"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -101,9 +101,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build crc16: phony bin/libcrc16.so
+build libvescEncoder.so: phony bin/libvescEncoder.so
 
-build libcrc16.so: phony bin/libcrc16.so
+build vescEncoder: phony bin/libvescEncoder.so
 
 # =============================================================================
 # Folder targets.
@@ -111,9 +111,9 @@ build libcrc16.so: phony bin/libcrc16.so
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Hannes/Documents/autobike/crc16/build
+# Folder: C:/Users/Hannes/Documents/autobike/vesc_encoder/build
 
-build all: phony bin/libcrc16.so
+build all: phony bin/libvescEncoder.so
 
 # =============================================================================
 # Built-in targets

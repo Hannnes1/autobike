@@ -1,5 +1,0 @@
-# ninja log v5
-1	105	6697363142281372	CMakeFiles/myLib.dir/C_/Users/Hannes/Documents/hello_world/src/myLib.c.o	a06ca1300194d506
-106	230	6697363143498167	bin/libmyLib.so	f418657321162215
-1	126	6702412439357872	CMakeFiles/myLib.dir/C_/Users/Hannes/Documents/autobike/labview_c/src/myLib.c.o	f9ba8cd66f82b1d2
-127	282	6702412440873644	bin/libmyLib.so	39dfb7737f43cc0

@@ -1,0 +1,3 @@
+C:/Users/Hannes/Documents/autobike/vesc_encoder/build/CMakeFiles/vescEncoder.dir
+C:/Users/Hannes/Documents/autobike/vesc_encoder/build/CMakeFiles/edit_cache.dir
+C:/Users/Hannes/Documents/autobike/vesc_encoder/build/CMakeFiles/rebuild_cache.dir
