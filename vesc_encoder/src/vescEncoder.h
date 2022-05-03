@@ -9,7 +9,7 @@ extern void bldc_interface_send_alive(uint8_t *array);
 
 extern int bldc_interface_set_rpm(uint8_t* array, int rpm);
 
-extern int bldc_interface_set_current(uint8_t *array, float current);
+extern int bldc_interface_set_current(uint8_t *array, int current);
 
 void buffer_append_float32(uint8_t* buffer, float number, float scale, int *index);
 

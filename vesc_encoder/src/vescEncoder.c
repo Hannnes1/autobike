@@ -13,10 +13,10 @@ extern void bldc_interface_send_alive(uint8_t *array) {
     }
 }
 
-extern int bldc_interface_set_current(uint8_t *array, float current) {
+extern int bldc_interface_set_current(uint8_t *array, int current) {
 	int send_index = 0;
 	send_buffer[send_index++] = 6;
-	buffer_append_float32(send_buffer, current, 1000.0, &send_index);
+	buffer_append_float32(send_buffer, (float) current, 1000.0, &send_index);
 
 	for (uint8_t i = 0; i < 10; i++) {
         array[i] = packet_send_packet(send_buffer, send_index, 0)[i];
@@ -25,6 +25,8 @@ extern int bldc_interface_set_current(uint8_t *array, float current) {
 }
 
 extern int bldc_interface_set_rpm(uint8_t *array, int rpm) {
+    rpm *= 250; // convert to actual RPM.
+
     int send_index = 0;
     send_buffer[send_index++] = 8;
     buffer_append_int32(send_buffer, rpm, &send_index);
