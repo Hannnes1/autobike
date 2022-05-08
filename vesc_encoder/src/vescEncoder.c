@@ -32,6 +32,8 @@ extern int bldc_interface_set_rpm(uint8_t *array, int rpm) {
     buffer_append_int32(send_buffer, rpm, &send_index);
 
     for (uint8_t i = 0; i < 10; i++) {
+	// Why do we call this multiple times? It will return the same thing each time.
+	// Wouldn't it be better to just pass arrary to the function?
         array[i] = packet_send_packet(send_buffer, send_index, 0)[i];
     }
     return rpm;
