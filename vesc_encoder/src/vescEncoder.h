@@ -5,20 +5,18 @@
 
 unsigned short crc16(unsigned char *buf, unsigned int len);
 
-extern void bldc_interface_send_alive(uint8_t *array);
+extern void sendAlive(uint8_t *array);
 
-void bldc_interface_get_values(uint8_t *array);
+extern int setRpm(uint8_t* array, int rpm);
 
-extern int bldc_interface_set_rpm(uint8_t* array, int rpm);
+extern int setCurrent(uint8_t *array, int current);
 
-extern int bldc_interface_set_current(uint8_t *array, int current);
+void bufferAppendFloat32(uint8_t* buffer, float number, float scale, int *index);
 
-void buffer_append_float32(uint8_t* buffer, float number, float scale, int *index);
+void bufferAppendInt32(uint8_t* buffer, int number, int *index);
 
-void buffer_append_int32(uint8_t* buffer, int number, int *index);
+uint8_t *buildPacket(uint8_t *data, unsigned int len);
 
-uint8_t *packet_send_packet(uint8_t *data, unsigned int len, int handler_num);
-
-uint8_t tx_buffer[512 + 6];
+uint8_t txBuffer[512 + 6];
 
 #endif

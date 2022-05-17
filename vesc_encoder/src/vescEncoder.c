@@ -3,84 +3,97 @@
 
 #include <string.h>
 
-static unsigned char send_buffer[1024];
+static unsigned char buffer[1024];
 
-extern void bldc_interface_send_alive(uint8_t *array) {
-    int send_index = 0;
-    send_buffer[send_index++] = 30;
+// Calculates command used to keep the motor alive.
+extern void sendAlive(uint8_t *array) {
+    int index = 0;
 
-	for (uint8_t i = 0; i < 10; i++) {
-        array[i] = packet_send_packet(send_buffer, send_index, 0)[i];
-    }
-}
+    buffer[index++] = 30; // Number correspondning to the keepAlive command.
 
-void bldc_interface_get_values(uint8_t *array) {
-	int send_index = 0;
-	send_buffer[send_index++] = 4;
+    // Build the packet for the command.
+    uint8_t *packet = buildPacket(buffer, index);
 
-	uint8_t *packet = packet_send_packet(send_buffer, send_index, 0);
-
+    // Copy calculated packet to the referance array.
 	for (uint8_t i = 0; i < 10; i++) {
         array[i] = packet[i];
     }
 }
 
-extern int bldc_interface_set_current(uint8_t *array, int current) {
-	int send_index = 0;
-	send_buffer[send_index++] = 6;
-	buffer_append_float32(send_buffer, (float) current, 1000.0, &send_index);
+// Calculates command used to set the current of the motor.
+// Based on the given parameter "current".
+extern int setCurrent(uint8_t *array, int current) {
+	int index = 0;
 
-    uint8_t *packet = packet_send_packet(send_buffer, send_index, 0);
+	buffer[index++] = 6; // Number correspondning to the setCurrent command.
 
+    // Rescale the current and swap its endianness.
+	bufferAppendFloat32(buffer, (float) current, 1000.0, &index);
+
+    // Build the packet for the command.
+    uint8_t *packet = buildPacket(buffer, index);
+
+    // Copy the calculated packet unto the referance array.
 	for (uint8_t i = 0; i < 10; i++) {
         array[i] = packet[i];
     }
 	return current;
 }
 
-extern int bldc_interface_set_rpm(uint8_t *array, int rpm) {
-    rpm *= 250; // convert to actual RPM.
+// Calculates command used to set the rpm of the motor.
+// Based on the given parameter "rpm".
+extern int setRpm(uint8_t *array, int rpm) {
+    int index = 0;
 
-    int send_index = 0;
-    send_buffer[send_index++] = 8;
-    buffer_append_int32(send_buffer, rpm, &send_index);
+    rpm *= 250; // Convert to the actual RPM of the bike's pedals.
 
-    uint8_t *packet = packet_send_packet(send_buffer, send_index, 0);
+    buffer[index++] = 8; // Number correspondning to the setRpm command.
 
+    // Swpan the endianness of the rpm.
+    bufferAppendInt32(buffer, rpm, &index);
+ 
+    // Build the packet for the command.
+    uint8_t *packet = buildPacket(buffer, index);
+
+    // Copy the calculated packet unto the referance array.
     for (uint8_t i = 0; i < 10; i++) {
         array[i] = packet[i];
     }
     return rpm;
 }
 
-uint8_t *packet_send_packet(uint8_t *data, unsigned int len, int handler_num) {
-    int b_ind = 0;
+// Builds the packet based on the given command and payload.
+// See http://vedder.se/2015/10/communicating-with-the-vesc-using-uart/ for more information.
+uint8_t *buildPacket(uint8_t *data, unsigned int len) {
+    int bufferIndex = 0;
 
     if (len <= 256) {
-        tx_buffer[b_ind++] = 2;
-        tx_buffer[b_ind++] = len;
+        txBuffer[bufferIndex++] = 2;
+        txBuffer[bufferIndex++] = len;
     } else {
-        tx_buffer[b_ind++] = 3;
-        tx_buffer[b_ind++] = len >> 8;
-        tx_buffer[b_ind++] = len & 0xFF;
+        txBuffer[bufferIndex++] = 3;
+        txBuffer[bufferIndex++] = len >> 8;
+        txBuffer[bufferIndex++] = len & 0xFF;
     }
 
-    memcpy(tx_buffer + b_ind, data, len);
-    b_ind += len;
+    memcpy(txBuffer + bufferIndex, data, len);
+    bufferIndex += len;
 
     unsigned short crc = crc16(data, len);
-    tx_buffer[b_ind++] = (uint8_t)(crc >> 8);
-    tx_buffer[b_ind++] = (uint8_t)(crc & 0xFF);
-    tx_buffer[b_ind++] = 3;
+    txBuffer[bufferIndex++] = (uint8_t)(crc >> 8);
+    txBuffer[bufferIndex++] = (uint8_t)(crc & 0xFF);
+    txBuffer[bufferIndex++] = 3;
 
-    return tx_buffer;
+    return txBuffer;
 }
 
-void buffer_append_float32(uint8_t* buffer, float number, float scale, int *index) {
-    buffer_append_int32(buffer, (int)(number * scale), index);
+// Rescales the given "number" with "scale", before swapping its endianness with "bufferAppendInt32".
+void bufferAppendFloat32(uint8_t* buffer, float number, float scale, int *index) {
+    bufferAppendInt32(buffer, (int)(number * scale), index);
 }
 
-void buffer_append_int32(uint8_t *buffer, int number, int *index) {
+// Swaps the endianness of the given "number".
+void bufferAppendInt32(uint8_t *buffer, int number, int *index) {
     buffer[(*index)++] = number >> 24;
     buffer[(*index)++] = number >> 16;
     buffer[(*index)++] = number >> 8;
