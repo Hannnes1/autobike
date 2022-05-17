@@ -1,8 +1,9 @@
 # ninja log v5
 1	147	6728493705310241	CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	6a23c19d7b49b07c
 1	164	6744836430258936	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	1f3df441f6ca38d9
-9	151	6744836430129269	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescDecoder.c.o	d948c27aa54ab55c
-165	323	6744836431805115	bin/libvescEncoder.so	4fdd17a4bc0754c
-22	160	6744868356133950	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/common.c.o	102c816562a9adc8
 2	187	6744868356383330	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescDecoder.c.o	d948c27aa54ab55c
 187	361	6744868358118699	bin/libvescEncoder.so	a04d0730e8ff301e
+22	160	6744868356133950	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/common.c.o	102c816562a9adc8
+10	202	6744936544855843	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/common.c.o	102c816562a9adc8
+2	208	6744936544935628	CMakeFiles/vescEncoder.dir/C_/Users/Hannes/Documents/autobike/vesc_encoder/src/vescEncoder.c.o	1f3df441f6ca38d9
+209	461	6744936547365303	bin/libvescEncoder.so	b7ef75cc6859fc2
