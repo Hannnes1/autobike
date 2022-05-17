@@ -1,11 +1,13 @@
 #ifndef _VESC_H_
 #define _VESC_H_
 
-typedef unsigned char uint8_t;
+#include "common.h"
 
 unsigned short crc16(unsigned char *buf, unsigned int len);
 
 extern void bldc_interface_send_alive(uint8_t *array);
+
+void bldc_interface_get_values(uint8_t *array);
 
 extern int bldc_interface_set_rpm(uint8_t* array, int rpm);
 
