@@ -1,5 +1,0 @@
-# ninja log v5
-1	142	6708708969067833	CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/crc16/src/crc16.c.o	be2221d4f00641bc
-143	336	6708708970966774	bin/libcrc16.so	a00660fbb5858b7c
-0	349	6728432082520795	CMakeFiles/crc16.dir/C_/Users/Hannes/Documents/autobike/crc16/src/crc16.c.o	be2221d4f00641bc
-349	796	6728432086948948	bin/libcrc16.so	a00660fbb5858b7c

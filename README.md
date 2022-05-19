@@ -5,8 +5,7 @@
 This repository contains the code that is beeing used within the Autobike project on Chalmers. The main part of the code is made with the red bike in mind,
 but it should work with other versions of the bike as well even if some minor adaptions might be necessary.
 
-Below is a list of the important files and folders within the repository. Folders not mentioned in the list below is used for testing during development,
-and will likely be removed in the future.
+Below is a list of the files and folders within the repository.
 
 * ### `labview`
 
