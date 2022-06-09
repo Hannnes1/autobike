@@ -3,16 +3,18 @@ data = tdmsread("Logs/Test4.tdms");
 
 %% Encoder
 
-% `data` contains one cell per group. Each cell contains a table with one
-% column per channel. In this case, the first channel in the first group
-% contains the time, and the second channel contains the position etc.
+% `data` contains one cell per group. Each cell contains
+% a table with one column per channel. In this case, the
+% first channel in the first group contains the time, 
+% and the second channel contains the position etc.
 time1 = table2array(data{1,1}(:,1));
 position = table2array(data{1,1}(:,2));
 velocity = table2array(data{1,1}(:,3));
 
 figure;
 yyaxis left;
-% 611 is the conversion ratio from counts on the encoder to degrees.
+% 611 is the conversion ratio from counts on the encoder
+% to degrees.
 plot(time1-time1(1),position/611);
 ylim([-20,20]);
 ylabel("Position (degrees)");
