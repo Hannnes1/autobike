@@ -119,5 +119,4 @@ title("Relation between duty cycle and angular velocity");
 
 %%
 
-rpm = -7.347 * 30 / pi * 111
-pwm = 50 + rpm * 40.0 / 7710.0
+pwm = 50 + rpm * 40.0 / 1000.0
