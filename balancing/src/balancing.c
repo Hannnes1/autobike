@@ -17,8 +17,8 @@ double calculateSteeringPWM(double angularVelocity) {
     double rpm = -angularVelocity * 30 / pi * gearRatio;
 
     // Convert from rpm to duty cycle,
-    // 7787 is the maximum speed of the motor.
-    return 50 + rpm * 40.0 / 7787.0;
+    // 4000 is the maximum speed of the motor (configured in Escon Studio).
+    return 50 + rpm * 40.0 / 4000.0;
 }
 
 double pid(double reference, double currentValue, double Kp, double Ki, double Kd) {
