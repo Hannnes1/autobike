@@ -45,7 +45,7 @@ extern int setCurrent(uint8_t *array, int current) {
 extern int setRpm(uint8_t *array, int rpm) {
     int index = 0;
 
-    rpm *= 250; // Convert to the actual RPM of the bike's pedals.
+    rpm *= 250; // Convert to the actual RPM of the red bike's pedals.
 
     buffer[index++] = 8; // Number correspondning to the setRpm command.
 

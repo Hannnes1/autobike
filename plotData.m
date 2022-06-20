@@ -1,5 +1,5 @@
 % Read all of the data in the TDMS file.
-data = tdmsread("Logs/pwmTest.tdms");
+data = tdmsread("Logs/Test3/test6P5.tdms");
 
 %% Encoder
 
@@ -12,19 +12,19 @@ position = table2array(data{1,1}(:,2));
 velocity = table2array(data{1,1}(:,3));
 
 figure;
-yyaxis left;
+%yyaxis left;
 % 611 is the conversion ratio from counts on the encoder
 % to degrees.
 plot(time1-time1(1),position/611);
-%ylim([-20,20]);
+ylim([-10,10]);
 ylabel("Position (degrees)");
 hold on;
-yyaxis right;
-plot(time1-time1(1),velocity/611*1000);
+%yyaxis right;
+%plot(time1-time1(1),velocity/611*1000);
 %ylim([-50,50]);
-ylabel("Velocity (degrees/s)");
+%ylabel("Velocity (degrees/s)");
 xlabel("Time (seconds)");
-%xlim([20,23]);
+xlim([22,30]);
 title("Steering motor readings");
 hold off;
 
@@ -69,14 +69,14 @@ title("Steering motor control");
 figure;
 yyaxis left;
 plot(time3-time2(1),pwm);
-%ylim([0,1]);
+ylim([0,1]);
 ylabel("Duty cycle");
 hold on;
 yyaxis right;
 plot(time2-time2(1),Z);
-ylabel("Roll rate");
-%ylim([-20,20]);
-%xlim([20,23]);
+ylabel("Roll rate (rad/s)");
+ylim([-1.5,1.5]);
+xlim([22,30]);
 xlabel("Time (seconds)");
 title("Duty cycle and Roll rate");
 
@@ -104,22 +104,12 @@ velocity04 = table2array(pwm04{1,1}(:,3));
 
 figure;
 hold on;
-plot(time01 - time01(1) - 1.57,velocity01/611*1000);
-plot(time02 - time02(1) - 0.91,velocity02/611*1000);
-plot(time03 - time03(1) - 1.6,velocity03/611*1000);
+plot(time01 - time01(1) - 1.56,velocity01/611*1000);
+plot(time02 - time02(1) - 0.9,velocity02/611*1000);
+plot(time03 - time03(1) - 1.59,velocity03/611*1000);
 plot(time04 - time04(1) - 0.78,velocity04/611*1000);
 xlabel("Time (seconds)");
 ylabel("Velocity (degrees/second)");
-yyaxis right;
-plot(time01 - time01(1) - 1.57,position01/611);
-xline(1.7);
-ylabel("Position (degrees)");
-xlim([0,12]);
-legend("PWM = 0.1", "PWM = 0.2", "PWM = 0.3", "PWM = 0.4", 'Location','northwest');
+xlim([-1,9]);
+legend("duty cycle = 0.1", "duty cycle = 0.2", "duty cycle = 0.3", "duty cycle = 0.4", 'Location','northwest');
 title("Relation between duty cycle and angular velocity");
-
-
-%%
-
-rpm = -7.347 * 30 / pi * 111
-pwm = 50 + rpm * 40.0 / 7710.0
